@@ -9,7 +9,7 @@ source('scr/SummarySE.R')
 #===============
 # arousal
 #===============
-f <- read.csv('data/all_faces_ratings.csv')
+f <- read.csv('data/ave_faces_ratings.csv')
 fa <- f[which(f$domain == 'arsl'),]
 
 # remove age and domain variable (missing data)

@@ -11,7 +11,7 @@ source('scr/SummarySE.R')
 # valence 
 #===============
 
-f <- read.csv('data/all_faces_ratings.csv')
+f <- read.csv('data/ave_faces_ratings.csv')
 fv <- f[which(f$domain == 'vln'),]
 
 # remove age and domain variable (missing data)

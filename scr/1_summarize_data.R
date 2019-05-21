@@ -10,8 +10,8 @@ library(reshape2); library(dplyr)
 #source('~/Dropbox (Personal)/Functions/SummarySE.R')
 source('~/Dropbox (MCAB Lab)/MCAB/data/FaceMorphs/scr/SummarySE.R')
 # load data
-d1a <- read.csv('data/new_Faces1_Numeric_Data_reverse.csv', header=TRUE)
-d1b <- read.csv('data/new_Faces2_Numeric_Data_reverse.csv', header=TRUE)
+d1a <- read.csv('data/null_data/Faces1_Numeric_Data_reverse.csv', header=TRUE)
+d1b <- read.csv('data/null_data/Faces2_Numeric_Data_reverse.csv', header=TRUE)
 
 # delete the 'natural' columns in Faces2 (not important for this analysis)
 d1b_no_nat <- d1b[, -c(1:2)] 
@@ -38,10 +38,10 @@ d2$level <- as.factor(t(as.data.frame(strsplit(as.character(d2$variable), '_')))
 d2$domain <- as.factor(t(as.data.frame(strsplit(as.character(d2$variable), '_')))[,4])
 
 # create [clean] csv of combined data 
-write.csv(d2,'data/all_faces_data.csv', row.names = FALSE)
+write.csv(d2,'data/all_faces_ratings.csv', row.names = FALSE)
 
 # ------------------------------- 
-# let's say I try to do the section below, but not separating arousal and valence into separate docs 
+# age grouping
 # -------------------------------
 d4a <- summarySE(data = d2, measurevar = 'rating', groupvars = c('subnum', 'age', 'domain', 'emotion', 'level'), na.rm = TRUE)
 
@@ -54,5 +54,5 @@ d4a <- d4a[c(1,11,2:5,7,8)]
 d4a$emo_level <- interaction(d4a$emotion, d4a$level) # create interaction term
 d4w <- dcast(d4a, subnum + agegrp + age + domain ~ emo_level, value.var = 'rating') #make wide
 
-write.csv(d4w,'data/all_faces_ratings.csv', row.names = FALSE)
+write.csv(d4w,'data/ave_faces_ratings.csv', row.names = FALSE)
 
