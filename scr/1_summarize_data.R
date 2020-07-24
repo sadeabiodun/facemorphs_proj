@@ -1,17 +1,16 @@
 # Summarize table for JASP analyses
 # 11.28.18 KLS & SA
+# Updated 7.23.20 SA 
 
-# clear out variables and set working dir
-rm(list=ls(all=TRUE))
-setwd("~/Dropbox (MCAB Lab)/MCAB/Drafts/facemorphs")
 
 # load libraries and functions
-library(reshape2); library(dplyr)
+library(reshape2); library(plyr); library(dplyr)
 #source('~/Dropbox (Personal)/Functions/SummarySE.R')
-source('~/Dropbox (MCAB Lab)/MCAB/data/FaceMorphs/scr/SummarySE.R')
+source('scr/SummarySE2.R')
+
 # load data
-d1a <- read.csv('data/null_data/Faces1_Numeric_Data_reverse.csv', header=TRUE)
-d1b <- read.csv('data/null_data/Faces2_Numeric_Data_reverse.csv', header=TRUE)
+d1a <- read.csv('data/base_data/Faces1_Numeric_Data_reverse.csv', header=TRUE)
+d1b <- read.csv('data/base_data/Faces2_Numeric_Data_reverse.csv', header=TRUE)
 
 # delete the 'natural' columns in Faces2 (not important for this analysis)
 d1b_no_nat <- d1b[, -c(1:2)] 
@@ -43,7 +42,8 @@ write.csv(d2,'data/all_faces_ratings.csv', row.names = FALSE)
 # ------------------------------- 
 # age grouping
 # -------------------------------
-d4a <- summarySE(data = d2, measurevar = 'rating', groupvars = c('subnum', 'age', 'domain', 'emotion', 'level'), na.rm = TRUE)
+d4a <- summarySE2(data = d2, measurevar = 'rating', groupvars = c('subnum', 'age', 'domain', 'emotion', 'level'), na.rm = TRUE)
+#d4a_test <- summarySE(d2, 'rating', groupvars=c('subnum', 'age', 'domain', 'emotion', 'level'), na.rm = TRUE) 
 
 # make age groups
 d4a$agegrp <- ntile(d4a$age, 3)
@@ -52,7 +52,25 @@ d4a$agegrp <- factor(d4a$agegrp, levels = c(1,2,3), labels = c('Younger', 'Middl
 # reorganize table and make wide
 d4a <- d4a[c(1,11,2:5,7,8)]
 d4a$emo_level <- interaction(d4a$emotion, d4a$level) # create interaction term
-d4w <- dcast(d4a, subnum + agegrp + age + domain ~ emo_level, value.var = 'rating') #make wide
+d4a$emo_level_dom <- interaction(d4a$emotion, d4a$level, d4a$domain)
 
-write.csv(d4w,'data/ave_faces_ratings.csv', row.names = FALSE)
+# dataframe associated with combined table, domain separated in long format
+d4w <- dcast(d4a, subnum + agegrp + age + domain ~ emo_level, value.var = 'rating') 
 
+# dataframe associated with combined wide table for valence and arousal ratings 
+d4w2 <- dcast(d4a, subnum + agegrp + age ~ emo_level_dom, value.var = 'rating') 
+
+#Output means/ranges for Age Groups
+ya_mean <- mean(d4w$age[which(d4w$agegrp == 'Younger')])
+ya_range <- range(d4w$age[which(d4w$agegrp == 'Younger')])
+ma_mean <- mean(d4w$age[which(d4w$agegrp == 'Middle Age')])
+ma_range <- range(d4w$age[which(d4w$agegrp == 'Middle Age')])
+oa_mean <- mean(d4w$age[which(d4w$agegrp == 'Older')])
+oa_range <- range(d4w$age[which(d4w$agegrp == 'Older')])
+
+summary_agegrps <- data.frame(ya_mean, ya_range, ma_mean, ma_range, oa_mean, oa_range)
+#Comment out below unless researcher desires to create csv with domain printed on separate rows
+#write.csv(d4w,'data/ave_faces_ratings.csv', row.names = FALSE)
+
+write.csv(d4w2,'data/ave_faces_ratings_aro_val.csv', row.names = FALSE)
+#ratings from this csv output that rely on programmatic calculation of means are correct. F1 had several instances of NA's with missing subject ratings. These NA's do not impact the mean score results. 
