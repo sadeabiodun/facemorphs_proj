@@ -6,11 +6,9 @@ library(reshape2); library(plyr); library(dplyr)
 source('scr/SummarySE2.R')
 
 # load data
-
 d1 <- read.csv('data/base_data/Faces2_Numeric_Data_reverse.csv', header=TRUE)
 
 # isolate 'natural' columns in data 
-
 d1_nat <- d1[, -c(1:2)] 
 d <- 1:ncol(d1_nat)  
 
@@ -38,9 +36,8 @@ write.csv(d2,'data/nat_ratings.csv', row.names = FALSE)
 # -------------------------------
 
 #manual function import 
-
 d4a <- summarySE2(data = d2, measurevar = colnames(d2[4]) , groupvars = c('subnum', 'age', 'domain', 'emotion', 'level'), na.rm = TRUE)
-#d4a_test <- summarySE(d2, 'rating', groupvars=c('subnum', 'age', 'domain', 'emotion', 'level'), na.rm = TRUE) 
+
 
 # make age groups
 d4a$agegrp <- ntile(d4a$age, 3)
@@ -61,4 +58,3 @@ d4w2 <- dcast(d4a, subnum + agegrp + age ~ emo_level_dom, value.var = 'rating')
 #write.csv(d4w,'data/ave_faces_ratings.csv', row.names = FALSE)
 
 write.csv(d4w2,'data/nat_ratings.csv', row.names = FALSE)
-#ratings from this csv output that rely on programmatic calculation of means are correct. F1 had several instances of NA's with missing subject ratings. These NA's do not impact the mean score results. 

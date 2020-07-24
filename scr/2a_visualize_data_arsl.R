@@ -1,6 +1,6 @@
 # Face Morph graphs (Arousal)
-# KLS and EAL 4/26/19, SA 5/15/19
-#Updated 5/19/20
+# KLS and SA 5/15/19
+#Updated 7/23/20
 
 library(ggplot2); library(reshape2); library(plyr); library(dplyr); library(plotly); library(wesanderson)
 
@@ -69,7 +69,7 @@ mag_age_arsl = ggplot(fa4, aes (x = agegrp, y = rating, fill = level)) + geom_ba
 
 # graph of emotion x mag x age interaction 
 emo_mag_age_leg_arsl = ggplot(fa2, aes(emotion, rating, fill = level)) + geom_bar(stat='identity', position=position_dodge()) + geom_errorbar(aes(ymin = rating -se, ymax = rating + se), width=.2, position=position_dodge(.9)) + 
-  ylim(0,7) + theme_minimal() + theme(legend.position = 'top', axis.title.x = element_text(face="bold", size=20), axis.text.x  = element_text(size=15)) + facet_wrap(~ agegrp) + xlab("Emotion") + ylab("Arousal Rating") + coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1)) + scale_fill_manual(values =wes_palette("Chevalier1"))
+  ylim(0,7) + theme_minimal() + theme(legend.position = 'top', axis.title.x = element_text(face="bold", size=20), axis.text.x  = element_text(size=15)) + facet_wrap(~ agegrp) + xlab("Emotion") + ylab("Arousal Rating") + coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1)) + scale_fill_brewer(name  ="Level of Expression")
 
 emo_mag_age_leg_arsl
 

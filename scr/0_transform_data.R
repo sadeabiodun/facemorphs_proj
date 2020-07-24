@@ -5,7 +5,6 @@
 
 library(psych); library(plyr)
 
-## Load data and recode each variable individually 
 ## Create transform function to recode data
 transform <- function(data, x) data[,x] <- revalue(factor(data[,x]), map, warn_missing=FALSE)
 key.list <- list(1:7)
@@ -29,7 +28,6 @@ d2a <- d2a[6:nrow(d2a),] #this clips off excess, including survey preview trials
 # add 19 to age (specifically for d2b)
 d2b <- d2b[4:nrow(d2b),]
 d2b$age <- as.numeric(d2b$egb.18) + 19
-
 
 # add sub number
 subnum1 <- seq(1:nrow(d2a))

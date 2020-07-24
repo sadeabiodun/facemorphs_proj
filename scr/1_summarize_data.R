@@ -2,10 +2,8 @@
 # 11.28.18 KLS & SA
 # Updated 7.23.20 SA 
 
-
 # load libraries and functions
 library(reshape2); library(plyr); library(dplyr)
-#source('~/Dropbox (Personal)/Functions/SummarySE.R')
 source('scr/SummarySE2.R')
 
 # load data
@@ -69,7 +67,8 @@ oa_mean <- mean(d4w$age[which(d4w$agegrp == 'Older')])
 oa_range <- range(d4w$age[which(d4w$agegrp == 'Older')])
 
 summary_agegrps <- data.frame(ya_mean, ya_range, ma_mean, ma_range, oa_mean, oa_range)
-#Comment out below unless researcher desires to create csv with domain printed on separate rows
+
+#Comment out line below unless researcher desires to create csv with domain printed on separate rows
 #write.csv(d4w,'data/ave_faces_ratings.csv', row.names = FALSE)
 
 write.csv(d4w2,'data/ave_faces_ratings_aro_val.csv', row.names = FALSE)
