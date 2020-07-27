@@ -1,9 +1,6 @@
 
 data/ave_faces_ratings_aro_val.jasp
 .Rproj.user
-/analysis/*
-/plots/null_plots/*
-/scr/null_scripts/*
 analysis/null_analysis/f1_arousal_reverse_stats.html
 analysis/null_analysis/f1_arousal_stats .html
 analysis/null_analysis/f1_arousal_stats .jasp
