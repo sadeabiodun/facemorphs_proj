@@ -4,3 +4,87 @@ data/ave_faces_ratings_aro_val.jasp
 /analysis/*
 /plots/null_plots/*
 /scr/null_scripts/*
+analysis/null_analysis/f1_arousal_reverse_stats.html
+analysis/null_analysis/f1_arousal_stats .html
+analysis/null_analysis/f1_arousal_stats .jasp
+analysis/null_analysis/f1_valence_reverse_stats.csv
+analysis/null_analysis/f1_valence_reverse_stats.html
+analysis/null_analysis/f1_valence_stats .html
+analysis/null_analysis/f1_valence_stats .jasp
+analysis/null_analysis/F1F2_val-arousal_reverse_age.jasp
+analysis/null_analysis/f2_arousal_stats .jasp
+analysis/null_analysis/f2_arousal_stats.html
+analysis/null_analysis/f2_natural_stats.html
+analysis/null_analysis/f2_natural_stats.jasp
+analysis/null_analysis/f2_valence_stats.html
+analysis/null_analysis/f2_valence_stats.jasp
+analysis/null_analysis/middleage_f1f2.jasp
+analysis/null_analysis/older_f1f2.jasp
+analysis/null_analysis/younger_f1f2.jasp
+analysis/result notes .txt
+analysis_/null_analysis/f1_arousal_reverse_stats.html
+analysis_/null_analysis/f1_arousal_stats .html
+analysis_/null_analysis/f1_arousal_stats .jasp
+analysis_/null_analysis/f1_valence_reverse_stats.csv
+analysis_/null_analysis/f1_valence_reverse_stats.html
+analysis_/null_analysis/f1_valence_stats .html
+analysis_/null_analysis/f1_valence_stats .jasp
+analysis_/null_analysis/F1F2_val-arousal_reverse_age.jasp
+analysis_/null_analysis/f2_arousal_stats .jasp
+analysis_/null_analysis/f2_arousal_stats.html
+analysis_/null_analysis/f2_natural_stats.html
+analysis_/null_analysis/f2_natural_stats.jasp
+analysis_/null_analysis/f2_valence_stats.html
+analysis_/null_analysis/f2_valence_stats.jasp
+analysis_/null_analysis/middleage_f1f2.jasp
+analysis_/null_analysis/older_f1f2.jasp
+analysis_/null_analysis/younger_f1f2.jasp
+analysis_/result notes .txt
+plots/null_plots/a_ea.png
+plots/null_plots/a_ema.png
+plots/null_plots/a_emal.png
+plots/null_plots/a_ma.png
+plots/null_plots/a_mal.png
+plots/null_plots/age_mag_legend_val.png
+plots/null_plots/age_mag_val.png
+plots/null_plots/emo_age_legend_arsl.png
+plots/null_plots/emo_age_legend_val.png
+plots/null_plots/emo_age_val.png
+plots/null_plots/emo_mag_age_arsl.png
+plots/null_plots/emo_mag_age_val.png
+plots/null_plots/mag_age_arsl.png
+plots/null_plots/mag_age_legend_arsl.png
+plots/null_plots_/a_ea.png
+plots/null_plots_/a_ema.png
+plots/null_plots_/a_emal.png
+plots/null_plots_/a_ma.png
+plots/null_plots_/a_mal.png
+plots/null_plots_/age_mag_legend_val.png
+plots/null_plots_/age_mag_val.png
+plots/null_plots_/emo_age_legend_arsl.png
+plots/null_plots_/emo_age_legend_val.png
+plots/null_plots_/emo_age_val.png
+plots/null_plots_/emo_mag_age_arsl.png
+plots/null_plots_/emo_mag_age_val.png
+plots/null_plots_/mag_age_arsl.png
+plots/null_plots_/mag_age_legend_arsl.png
+scr/null_scripts/FaceMorph1Summarize.R
+scr/null_scripts/FaceMorph2Summarize.R
+scr/null_scripts/FaceMorph_age_graph_arousal.R
+scr/null_scripts/FaceMorph_age_graphs.R
+scr/null_scripts/FaceMorph_graph_arousal.R
+scr/null_scripts/FaceMorph_graph_arousal_age.R
+scr/null_scripts/FaceMorph_graph_valence.R
+scr/null_scripts/FaceMorph_graph_valence_age.R
+scr/null_scripts/old_FaceMorph1Transform.R
+scr/null_scripts/old_FaceMorph2Transform.R
+scr/null_scripts_/FaceMorph1Summarize.R
+scr/null_scripts_/FaceMorph2Summarize.R
+scr/null_scripts_/FaceMorph_age_graph_arousal.R
+scr/null_scripts_/FaceMorph_age_graphs.R
+scr/null_scripts_/FaceMorph_graph_arousal.R
+scr/null_scripts_/FaceMorph_graph_arousal_age.R
+scr/null_scripts_/FaceMorph_graph_valence.R
+scr/null_scripts_/FaceMorph_graph_valence_age.R
+scr/null_scripts_/old_FaceMorph1Transform.R
+scr/null_scripts_/old_FaceMorph2Transform.R
