@@ -29,7 +29,7 @@ d2$level <- as.factor(t(as.data.frame(strsplit(as.character(d2$variable), '_')))
 d2$domain <- as.factor(t(as.data.frame(strsplit(as.character(d2$variable), '_')))[,4])
 
 # create [clean] csv of combined data 
-write.csv(d2,'data/nat_ratings.csv', row.names = FALSE)
+#write.csv(d2,'data/nat_ratings.csv', row.names = FALSE)
 
 # ------------------------------- 
 # age grouping

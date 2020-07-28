@@ -85,3 +85,4 @@ scr/null_scripts_/FaceMorph_graph_valence.R
 scr/null_scripts_/FaceMorph_graph_valence_age.R
 scr/null_scripts_/old_FaceMorph1Transform.R
 scr/null_scripts_/old_FaceMorph2Transform.R
+*.jasp

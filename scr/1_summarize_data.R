@@ -59,14 +59,17 @@ d4w <- dcast(d4a, subnum + agegrp + age + domain ~ emo_level, value.var = 'ratin
 d4w2 <- dcast(d4a, subnum + agegrp + age ~ emo_level_dom, value.var = 'rating') 
 
 #Output means/ranges for Age Groups
-ya_mean <- mean(d4w$age[which(d4w$agegrp == 'Younger')])
-ya_range <- range(d4w$age[which(d4w$agegrp == 'Younger')])
-ma_mean <- mean(d4w$age[which(d4w$agegrp == 'Middle Age')])
-ma_range <- range(d4w$age[which(d4w$agegrp == 'Middle Age')])
-oa_mean <- mean(d4w$age[which(d4w$agegrp == 'Older')])
-oa_range <- range(d4w$age[which(d4w$agegrp == 'Older')])
+ya_mean <- mean(d4w2$age[which(d4w2$agegrp == 'Younger')])
+ya_range <- range(d4w2$age[which(d4w2$agegrp == 'Younger')])
+ma_mean <- mean(d4w2$age[which(d4w2$agegrp == 'Middle Age')])
+ma_range <- range(d4w2$age[which(d4w2$agegrp == 'Middle Age')])
+oa_mean <- mean(d4w2$age[which(d4w2$agegrp == 'Older')])
+oa_range <- range(d4w2$age[which(d4w2$agegrp == 'Older')])
+ya_length <- length(d4w2$age[which(d4w2$agegrp == 'Younger')])
+ma_length <- length(d4w2$age[which(d4w2$agegrp == 'Middle Age')])
+oa_length <- length(d4w2$age[which(d4w2$agegrp == 'Older')])
 
-summary_agegrps <- data.frame(ya_mean, ya_range, ma_mean, ma_range, oa_mean, oa_range)
+summary_agegrps2 <- data.frame(ya_mean, ya_range, ma_mean, ma_range, oa_mean, oa_range)
 
 #Comment out line below unless researcher desires to create csv with domain printed on separate rows
 #write.csv(d4w,'data/ave_faces_ratings.csv', row.names = FALSE)
