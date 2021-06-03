@@ -37,7 +37,7 @@
 #### Below is a description of each directory inside this repository:
 
 **data/** 
-- contains interim data sets and script outpu. All contents on first level of this directory can be deleted and regenerated from scripts. content in data/base_data are the raw data files 
+- contains interim data sets and script output. all contents on first level of this directory can be deleted and regenerated from scripts. content in data/base_data are the raw data files.
 
 **plots/**
 - contains figures and tables for manuscript. bar plots in this directory can be deleted and regenerated from scripts.

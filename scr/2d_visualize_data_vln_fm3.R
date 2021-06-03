@@ -1,26 +1,24 @@
-# Face Morph Graphs (Valence)
-# 5.15.19 KLS & SA
-# Updated 7.23.20
-# Updated 6.3.21 JMS
+# Face Morph 3 Graphs (Valence)
+# 6.3.21 JMS, adapted from 2b_visualize_data_vln by KLS & SA
 
 # Load libraries and functions
 library(ggplot2); library(reshape2); library(plyr); library(wesanderson)
-#setwd("~/Dropbox (MCAB Lab)/MCAB/Drafts/facemorphs")
 source('scr/SummarySE2.R')
 
 # ===============
 # Valence
 # ===============
 
-f <- read.csv('data/ave_faces_ratings.csv')
+f <- read.csv('data/ave_faces_ratings_fm3.csv')
 fv <- f[which(f$domain == 'vln'),]
 
-# Remove age and domain variable (missing data)
+# Remove age, domain and attention variables (missing data)
 fv$domain <- NULL 
 fv$age <- NULL
-
-# Get summary stats for demographics 
-summary(fv)
+fv$X1.att <- NULL
+fv$X2.att <- NULL
+fv$X3.att <- NULL
+fv$X4.att <- NULL
 
 # Reorder age variable
 fv$agegrp <- relevel(factor(fv$agegrp), 'Younger')
@@ -69,7 +67,7 @@ age_mag_val <- ggplot(fv4, aes (x = agegrp, y = rating, fill = level)) + geom_ba
 
 # mXa (with legend)
 age_mag_leg_val <- ggplot(fv4, aes (x = agegrp, y = rating, fill = level)) + geom_bar(stat='identity', position=position_dodge()) +   geom_errorbar(aes(ymin = rating -se, ymax = rating + se), width=.2, position=position_dodge(.9)) + theme_minimal() + theme(legend.position='top', legend.title = element_text(size=15, face="bold"), axis.title.x = element_text(face="bold", size=20), axis.text.x  = element_text(size=15)) + scale_fill_brewer(name  ="Magnitude of Expression") + xlab("Age Group") + ylab (NULL) + 
-coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1)) 
+  coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1)) 
 
 # Graph of emotion x mag x age interaction
 emo_mag_age_leg_val = ggplot(fv2, aes(emotion, rating, fill = level)) + geom_bar(stat='identity', position=position_dodge()) + geom_errorbar(aes(ymin = rating -se, ymax = rating + se), width=.2, position=position_dodge(.9)) + 
@@ -83,9 +81,9 @@ emo_mag_age_val = ggplot(fv2, aes(emotion, rating, fill = level)) + geom_bar(sta
   coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1)) + theme_minimal() + theme(legend.position = 'none', axis.title.x = element_text(face="bold", size=20), axis.text.x  = element_text(size=15)) + facet_wrap(~ agegrp) + xlab("Emotion") + scale_fill_brewer(name  ="Level of Expression") + ylab (NULL)
 
 # Save plot
-#ggsave(emo_age_val, filename = "plots/emo_age_val.png", width = 11, height = 7, units = "in")
-#ggsave(emo_age_legend_val, filename = "plots/emo_age_legend_val.png", width = 6, height = 7, units = "in")
-#ggsave(age_mag_val, filename = "plots/age_mag_val.png",  width = 6, height = 7, units = "in")
-#ggsave(age_mag_leg_val, filename = "plots/age_mag_legend_val.png",  width = 6, height = 7, units = "in", bg="transparent")
-#ggsave(emo_mag_age_val, filename = "plots/emo_mag_age_val.png",  width = 11, height = 7, units = "in", bg="transparent")
-ggsave(emo_mag_age_leg_val, filename = "plots/emo_mag_age_legend_val.png",  width = 6, height = 7, units = "in", bg="transparent")
+#ggsave(emo_age_val, filename = "plots/emo_age_val_fm3.png", width = 11, height = 7, units = "in")
+#ggsave(emo_age_legend_val, filename = "plots/emo_age_legend_val_fm3.png", width = 6, height = 7, units = "in")
+#ggsave(age_mag_val, filename = "plots/age_mag_val_fm3.png",  width = 6, height = 7, units = "in")
+#ggsave(age_mag_leg_val, filename = "plots/age_mag_legend_val_fm3.png",  width = 6, height = 7, units = "in", bg="transparent")
+#ggsave(emo_mag_age_val, filename = "plots/emo_mag_age_val_fm3.png",  width = 11, height = 7, units = "in", bg="transparent")
+ggsave(emo_mag_age_leg_val, filename = "plots/emo_mag_age_legend_val_fm3.png",  width = 6, height = 7, units = "in", bg="transparent")
