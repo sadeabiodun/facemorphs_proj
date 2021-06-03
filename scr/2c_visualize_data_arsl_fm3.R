@@ -1,7 +1,5 @@
-# Face Morph Graphs (Arousal)
-# 5.15.19 KLS & SA
-# Updated 7.23.20
-# Updated 6.3.21 JMS
+# Face Morph 3 Graphs (Arousal)
+# 6.3.21 JMS, adapted from 2a_visualize_data_arsl by KLS & SA
 
 # Load libraries and functions
 library(ggplot2); library(reshape2); library(plyr); library(dplyr); library(plotly); library(wesanderson)
@@ -11,12 +9,16 @@ source('scr/SummarySE2.R')
 # Arousal
 # ===============
 
-f <- read.csv('data/ave_faces_ratings.csv')
+f <- read.csv('data/ave_faces_ratings_fm3.csv')
 fa <- f[which(f$domain == 'arsl'),]
 
-# Remove age and domain variable (missing data)
+# Remove age, domain and attention variables (missing data)
 fa$domain <- NULL 
 fa$age <- NULL
+fa$X1.att <- NULL
+fa$X2.att <- NULL
+fa$X3.att <- NULL
+fa$X4.att <- NULL
 
 # Reorder age variable
 fa$agegrp <- relevel(factor(fa$agegrp), 'Younger')
@@ -82,12 +84,8 @@ emo_mag_age_arsl = ggplot(fa2, aes(emotion, rating, fill = level)) + geom_bar(st
 #+ ylab ("Arousal Rating")
 
 # Save plot
-#ggsave(emo_age_leg_arsl, filename = "plots/emo_age_legend_arsl.png", width = 11, height = 7, units = "in")
-#ggsave(mag_age_leg_arsl, filename = "plots/mag_age_legend_arsl.png", width = 6, height = 7, units = "in")
-#ggsave(mag_age_arsl, filename = "plots/mag_age_arsl.png",  width = 6, height = 7, units = "in")
-#ggsave(emo_mag_age_arsl, filename = "plots/emo_mag_age_arsl.png",  width = 6, height = 7, units = "in", bg="transparent")
-ggsave(emo_mag_age_leg_arsl, filename = "plots/emo_mag_age_legend_arsl.png",  width = 11, height = 7, units = "in", bg="transparent")
-
-#ema
-#ma
-#ea
+#ggsave(emo_age_leg_arsl, filename = "plots/emo_age_legend_arsl_fm3.png", width = 11, height = 7, units = "in")
+#ggsave(mag_age_leg_arsl, filename = "plots/mag_age_legend_arsl_fm3.png", width = 6, height = 7, units = "in")
+#ggsave(mag_age_arsl, filename = "plots/mag_age_arsl_fm3.png",  width = 6, height = 7, units = "in")
+#ggsave(emo_mag_age_arsl, filename = "plots/emo_mag_age_arsl_fm3.png",  width = 6, height = 7, units = "in", bg="transparent")
+ggsave(emo_mag_age_leg_arsl, filename = "plots/emo_mag_age_legend_arsl_fm3.png",  width = 11, height = 7, units = "in", bg="transparent")
