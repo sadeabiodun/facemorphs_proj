@@ -2,7 +2,7 @@
 # 6.3.21 JMS, adapted from 0_transform_data by KLS & SA
 
 # Install packages and load libraries
-library(psych); library(plyr)
+library(psych); library(plyr); library(dplyr)
 
 # Create transform function to recode data
 transform <- function(data, x) data[,x] <- revalue(factor(data[,x]), map, warn_missing=FALSE)
@@ -24,7 +24,7 @@ d3 <- cbind(subnum, d2)
 
 # Rename columns
 #rename all columns
-d3 <- d3 %>% rename(age = Q5, att_1 = Q580, att_2 = Q581, att_3 = Q585, att_4 = Q586,
+d3 <- d3 %>% rename(c('age' = Q5, 'att_1' = Q580, 'att_2' = Q581, 'att_3' = Q585, 'att_4' = Q586,
                     '01_win_full_arsl' = Q21, '01_win_full_vln' = Q22, '01_win_low_arsl' = Q26, '01_win_low_vln' = Q27, '01_win_med_arsl' = Q31, '01_win_med_vln' = Q32,
                     '01_lose_full_arsl' = Q36, '01_lose_full_vln' = Q37, '01_lose_low_arsl' = Q41, '01_lose_low_vln' = Q42, '01_lose_med_arsl' = Q46, '01_lose_med_vln' = Q47,
                     '04_a_full_arsl' = Q50, '04_a_full_vln' = Q51, '04_a_low_arsl' = Q54, '04_a_low_vln' = Q55, '04_a_med_arsl' = Q58, '04_a_med_vln' = Q59,
@@ -44,7 +44,7 @@ d3 <- d3 %>% rename(age = Q5, att_1 = Q580, att_2 = Q581, att_3 = Q585, att_4 = 
                     '69_s_full_arsl' = Q218, '69_s_full_vln' = Q219, '69_s_low_arsl' = Q222, '69_s_low_vln' = Q223, '69_s_med_arsl' = Q226, '69_s_med_vln' = Q227,
                     '113_a_full_arsl' = Q230, '113_a_full_vln' = Q231, '113_a_low_arsl' = Q234, '113_a_low_vln' = Q235, '113_a_med_arsl' = Q238, '113_a_med_vln' = Q239,
                     '113_h_full_arsl' = Q242, '113_h_full_vln' = Q243, '113_h_low_arsl' = Q246, '113_h_low_vln' = Q247, '113_h_med_arsl' = Q250, '113_h_med_vln' = Q251,
-                    '113_s_full_arsl' = Q254, '113_s_full_vln' = Q255, '113_s_low_arsl' = Q258, '113_s_low_vln' = Q259, '113_s_med_arsl' = Q262, '113_s_med_vln' = Q263)
+                    '113_s_full_arsl' = Q254, '113_s_full_vln' = Q255, '113_s_low_arsl' = Q258, '113_s_low_vln' = Q259, '113_s_med_arsl' = Q262, '113_s_med_vln' = Q263))
 
 # Write to csv
 write.csv(d3, 'data/base_data/Faces3_Numeric_Data_reverse.csv', row.names=FALSE)

@@ -53,6 +53,6 @@ oa_length <- length(d3w2$age[which(d3w2$agegrp == 'Older')])
 summary_agegrps2 <- data.frame(ya_mean, ya_range, ma_mean, ma_range, oa_mean, oa_range)
 
 # Comment out line below unless researcher desires to create csv with domain printed on separate rows
-#write.csv(d3w,'data/ave_faces_ratings_fm3.csv', row.names = FALSE)
+write.csv(d3w,'data/ave_faces_ratings_fm3.csv', row.names = FALSE)
 
 write.csv(d3w2,'data/ave_faces_ratings_aro_val_fm3.csv', row.names = FALSE)
