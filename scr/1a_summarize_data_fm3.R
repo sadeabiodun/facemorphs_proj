@@ -8,6 +8,9 @@ source('scr/SummarySE2.R')
 # Load data
 d1 <- read.csv('data/base_data/Faces3_Numeric_Data_reverse.csv', header=TRUE)
 
+# Remove attention check columns
+d1 <- subset(d1, select = -c(att_1, att_2, att_3, att_4))
+
 # Melt
 d2 <- melt(d1, id.vars = c('subnum', 'age'), value.name = 'rating')
 
