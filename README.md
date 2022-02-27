@@ -37,13 +37,13 @@
 - output file: plots/emo_mag_age_legend_vln.png 
 
 *2c_visualize_data_arsl_vln_fm3.R*
-- purpose: same as above, but modified for Study 3 data
+- purpose: same as 2a_visualize_data_arsl.R and 2b_visualize_data_vln.R, but modified for Study 3 data
 - helper function: scr/SummarySE2.R
 - input file: data/ave_faces_ratings_fm3_social.csv 
 - output file: plots/fm3_social_emo_mag_age_legend.png
 
 *2d_visualize_domain_comparison_fm3.R*
-- purpose: same as above, but modified for Study 3 data
+- purpose: create plot visualizations comparing arousal and ratings ratings in different domains (for Study 3 data)
 - helper function: scr/SummarySE2.R
 - input file: data/all_faces_ratings_fm3.csv 
 - output files: plots/fm3_soc_mon_arsl_comparison.png and plots/fm3_soc_mon_vln_comparison.png
