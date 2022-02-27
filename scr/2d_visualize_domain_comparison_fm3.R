@@ -46,8 +46,8 @@ arsl_plot <- ggplot(arsl, aes(x = agegrp, y = rating, fill = magnitude)) +
 arsl_grid <- arsl_plot + facet_grid(emotion ~ domain, scales = 'free', space = 'free') +
   geom_errorbar(aes(ymin = rating - se, ymax = rating + se), size = 0.5, width = 0.25, position = position_dodge(0.9)) +
   coord_cartesian(ylim = c(1,7)) + scale_y_continuous(breaks = seq(1, 7, 1)) +
-  theme_minimal() + theme(legend.position = 'top', axis.title.x = element_text(face = "bold", size = 20), axis.text.x  = element_text(size = 15)) +
-  theme(text = element_text(size = 20)) + scale_fill_manual(values = wes_palette("GrandBudapest1")) + xlab("Age Group") + ylab("Arousal Rating")
+  theme_minimal() + theme(legend.position = 'top', axis.title.x = element_text(face = "bold", size = 18), axis.text.x  = element_text(size = 12)) +
+  theme(text = element_text(size = 18)) + scale_fill_manual(values = wes_palette("GrandBudapest1")) + xlab("Age Group") + ylab("Arousal Rating")
 arsl_grid
 
 # Save plot
@@ -60,8 +60,8 @@ vln_plot <- ggplot(vln, aes(x = agegrp, y = rating, fill = magnitude)) +
 vln_grid <- vln_plot + facet_grid(emotion ~ domain, scales = 'free', space = 'free') +
   geom_errorbar(aes(ymin = rating - se, ymax = rating + se), size = 0.5, width = 0.25, position = position_dodge(0.9)) +
   coord_cartesian(ylim = c(1,7)) + scale_y_continuous(breaks = seq(1, 7, 1)) +
-  theme_minimal() + theme(legend.position = 'top', axis.title.x = element_text(face = "bold", size = 20), axis.text.x  = element_text(size = 15)) +
-  theme(text = element_text(size = 20)) + scale_fill_manual(values = wes_palette("GrandBudapest1")) + xlab("Age Group") + ylab("Valence Rating")
+  theme_minimal() + theme(legend.position = 'top', axis.title.x = element_text(face = "bold", size = 18), axis.text.x  = element_text(size = 12)) +
+  theme(text = element_text(size = 18)) + scale_fill_manual(values = wes_palette("GrandBudapest1")) + xlab("Age Group") + ylab("Valence Rating")
 vln_grid
 
 # Save plot

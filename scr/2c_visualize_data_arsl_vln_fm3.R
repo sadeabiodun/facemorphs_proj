@@ -60,13 +60,11 @@ emo_age_leg_arsl = ggplot(fa3, aes(x=emotion, y= rating, fill = agegrp)) +
 # Graph of level x age interaction
 mag_age_leg_arsl = ggplot(fa4, aes (x = agegrp, y = rating, fill = level)) + geom_bar(stat='identity', position=position_dodge()) +   geom_errorbar(aes(ymin = rating -se, ymax = rating + se), width=.2, position=position_dodge(.9)) + 
   ylim(0,7) + theme_minimal() + theme(legend.position = 'top', axis.title.x = element_text(face="bold", size=20), axis.text.x  = element_text(size=15)) + scale_fill_brewer(name = "Magnitude of Expression") + xlab("Age Group") + ylab(NULL) + coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1))
-# + ylab ("Arousal Rating")
 mag_age_leg_arsl
 
 # Graph of level x age interaction (without legend)
 mag_age_arsl = ggplot(fa4, aes (x = agegrp, y = rating, fill = level)) + geom_bar(stat='identity', position=position_dodge()) +   geom_errorbar(aes(ymin = rating -se, ymax = rating + se), width=.2, position=position_dodge(.9)) + 
   ylim(0,7) + theme_minimal() + theme(legend.position = 'none', axis.title.x = element_text(face="bold", size=20), axis.text.x  = element_text(size=15)) + scale_fill_brewer(name = "Magnitude of Expression") + xlab("Age Group") + ylab(NULL) + coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1))
-# + ylab ("Arousal Rating")
 
 # -------------------------------
 
@@ -74,7 +72,6 @@ mag_age_arsl = ggplot(fa4, aes (x = agegrp, y = rating, fill = level)) + geom_ba
 
 emo_mag_age_leg_arsl = ggplot(fa2, aes(emotion, rating, fill = level)) + geom_bar(stat='identity', position=position_dodge()) + geom_errorbar(aes(ymin = rating -se, ymax = rating + se), width=.2, position=position_dodge(.9)) + 
   ylim(0,7) + theme_minimal() + theme(legend.position = 'top', axis.title.x = element_text(face="bold", size=20), axis.text.x  = element_text(size=15)) + facet_wrap(~ agegrp) + xlab("Emotion") + ylab("Arousal Rating") + coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1)) + scale_fill_manual(values =wes_palette("GrandBudapest1")) + theme(text = element_text(size=20))
-# Plot dimensions (for paper) are 800x478
 emo_mag_age_leg_arsl
 
 # Graph of emotion x mag x age interaction (no legend)
@@ -152,7 +149,6 @@ age_mag_leg_val <- ggplot(fv4, aes (x = agegrp, y = rating, fill = level)) + geo
 # Graph of emotion x mag x age interaction
 emo_mag_age_leg_val = ggplot(fv2, aes(emotion, rating, fill = level)) + geom_bar(stat='identity', position=position_dodge()) + geom_errorbar(aes(ymin = rating -se, ymax = rating + se), width=.2, position=position_dodge(.9)) + 
   ylim(1,7) + theme_minimal() + theme(legend.position = 'top', axis.title.x = element_text(face="bold", size=20), axis.text.x  = element_text(size=15)) + facet_wrap(~ agegrp) + xlab("Emotion") + ylab("Valence Rating") + coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1)) + scale_fill_manual(values =wes_palette("GrandBudapest1")) + theme(text = element_text(size=20))
-# Plot dimensions (for paper) are 800x478
 emo_mag_age_leg_val
 
 # 3x3x3 without legend
@@ -173,8 +169,8 @@ fv2$rating_type <- 'Valence'
 all_ratings <- rbind(fa2, fv2)
 
 all <- ggplot(all_ratings, aes(emotion, rating, fill = level)) + geom_bar(stat = 'identity', position = position_dodge()) +
-  geom_errorbar(aes(ymin = rating -se, ymax = rating + se), width=.2, position = position_dodge(.9)) +
-  ylim(1,7) + theme_minimal() + theme(legend.position = 'top', axis.title.x = element_text(face="bold", size=20), axis.text.x  = element_text(size=15)) + xlab("Emotion") + ylab("Rating") + coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1)) + scale_fill_manual(values = wes_palette("GrandBudapest1")) + theme(text = element_text(size=20)) +
+  geom_errorbar(aes(ymin = rating - se, ymax = rating + se), width = .2, position = position_dodge(.9)) +
+  ylim(1,7) + theme_minimal() + theme(legend.position = 'top', axis.title.x = element_text(face = "bold", size = 18), axis.text.x  = element_text(size = 12)) + xlab("Emotion") + ylab("Rating") + coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1)) + scale_fill_manual(values = wes_palette("GrandBudapest1")) + theme(text = element_text(size = 18)) +
   facet_grid(rows = vars(rating_type), cols = vars(agegrp), switch = 'y')
 all
 

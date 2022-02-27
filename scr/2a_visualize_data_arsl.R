@@ -2,6 +2,7 @@
 # 5.15.19 KLS & SA
 # Updated 7.23.20
 # Updated 6.3.21 JMS
+# Updated 2.26.21 JMS
 
 # Load libraries and functions
 library(ggplot2); library(reshape2); library(plyr); library(dplyr); library(plotly); library(wesanderson)
@@ -71,7 +72,7 @@ mag_age_arsl = ggplot(fa4, aes (x = agegrp, y = rating, fill = level)) + geom_ba
 # Graph of emotion x mag x age interaction 
 
 emo_mag_age_leg_arsl = ggplot(fa2, aes(emotion, rating, fill = level)) + geom_bar(stat='identity', position=position_dodge()) + geom_errorbar(aes(ymin = rating -se, ymax = rating + se), width=.2, position=position_dodge(.9)) + 
-  ylim(0,7) + theme_minimal() + theme(legend.position = 'top', axis.title.x = element_text(face="bold", size=20), axis.text.x  = element_text(size=15)) + facet_wrap(~ agegrp) + xlab("Emotion") + ylab("Arousal Rating") + coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1)) + scale_fill_manual(values =wes_palette("GrandBudapest1")) + theme(text = element_text(size=20))
+  ylim(0,7) + theme_minimal() + theme(legend.position = 'top', axis.title.x = element_text(face="bold", size=18), axis.text.x  = element_text(size=12)) + facet_wrap(~ agegrp) + xlab("Emotion") + ylab("Arousal Rating") + coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1)) + scale_fill_manual(values =wes_palette("GrandBudapest1")) + theme(text = element_text(size=18))
 # Plot dimensions (for paper) are 800x478
 emo_mag_age_leg_arsl
 
@@ -86,8 +87,4 @@ emo_mag_age_arsl = ggplot(fa2, aes(emotion, rating, fill = level)) + geom_bar(st
 #ggsave(mag_age_leg_arsl, filename = "plots/mag_age_legend_arsl.png", width = 6, height = 7, units = "in")
 #ggsave(mag_age_arsl, filename = "plots/mag_age_arsl.png",  width = 6, height = 7, units = "in")
 #ggsave(emo_mag_age_arsl, filename = "plots/emo_mag_age_arsl.png",  width = 6, height = 7, units = "in", bg="transparent")
-ggsave(emo_mag_age_leg_arsl, filename = "plots/emo_mag_age_legend_arsl.png",  width = 11, height = 7, units = "in", bg="transparent")
-
-#ema
-#ma
-#ea
+ggsave(emo_mag_age_leg_arsl, filename = "plots/emo_mag_age_legend_arsl.png",  width = 6, height = 7, units = "in", bg = "transparent")

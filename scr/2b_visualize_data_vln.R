@@ -2,6 +2,7 @@
 # 5.15.19 KLS & SA
 # Updated 7.23.20
 # Updated 6.3.21 JMS
+# Updated 2.26.21 JMS
 
 # Load libraries and functions
 library(ggplot2); library(reshape2); library(plyr); library(wesanderson)
@@ -73,7 +74,7 @@ coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1))
 
 # Graph of emotion x mag x age interaction
 emo_mag_age_leg_val = ggplot(fv2, aes(emotion, rating, fill = level)) + geom_bar(stat='identity', position=position_dodge()) + geom_errorbar(aes(ymin = rating -se, ymax = rating + se), width=.2, position=position_dodge(.9)) + 
-  ylim(1,7) + theme_minimal() + theme(legend.position = 'top', axis.title.x = element_text(face="bold", size=20), axis.text.x  = element_text(size=15)) + facet_wrap(~ agegrp) + xlab("Emotion") + ylab("Valence Rating") + coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1)) + scale_fill_manual(values =wes_palette("GrandBudapest1")) + theme(text = element_text(size=20))
+  ylim(1,7) + theme_minimal() + theme(legend.position = 'top', axis.title.x = element_text(face="bold", size=18), axis.text.x  = element_text(size=12)) + facet_wrap(~ agegrp) + xlab("Emotion") + ylab("Valence Rating") + coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1)) + scale_fill_manual(values =wes_palette("GrandBudapest1")) + theme(text = element_text(size=18))
 # Plot dimensions (for paper) are 800x478
 emo_mag_age_leg_val
 
@@ -88,4 +89,4 @@ emo_mag_age_val = ggplot(fv2, aes(emotion, rating, fill = level)) + geom_bar(sta
 #ggsave(age_mag_val, filename = "plots/age_mag_val.png",  width = 6, height = 7, units = "in")
 #ggsave(age_mag_leg_val, filename = "plots/age_mag_legend_val.png",  width = 6, height = 7, units = "in", bg="transparent")
 #ggsave(emo_mag_age_val, filename = "plots/emo_mag_age_val.png",  width = 11, height = 7, units = "in", bg="transparent")
-ggsave(emo_mag_age_leg_val, filename = "plots/emo_mag_age_legend_val.png",  width = 6, height = 7, units = "in", bg="transparent")
+ggsave(emo_mag_age_leg_val, filename = "plots/emo_mag_age_legend_val.png",  width = 6, height = 7, units = "in", bg = "transparent")
