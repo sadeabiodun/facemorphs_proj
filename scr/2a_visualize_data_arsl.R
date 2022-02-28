@@ -2,7 +2,7 @@
 # 5.15.19 KLS & SA
 # Updated 7.23.20
 # Updated 6.3.21 JMS
-# Updated 2.26.21 JMS
+# Updated 2.26.22 JMS
 
 # Load libraries and functions
 library(ggplot2); library(reshape2); library(plyr); library(dplyr); library(plotly); library(wesanderson)
@@ -87,4 +87,4 @@ emo_mag_age_arsl = ggplot(fa2, aes(emotion, rating, fill = level)) + geom_bar(st
 #ggsave(mag_age_leg_arsl, filename = "plots/mag_age_legend_arsl.png", width = 6, height = 7, units = "in")
 #ggsave(mag_age_arsl, filename = "plots/mag_age_arsl.png",  width = 6, height = 7, units = "in")
 #ggsave(emo_mag_age_arsl, filename = "plots/emo_mag_age_arsl.png",  width = 6, height = 7, units = "in", bg="transparent")
-ggsave(emo_mag_age_leg_arsl, filename = "plots/emo_mag_age_legend_arsl.png",  width = 6, height = 7, units = "in", bg = "transparent")
+ggsave(emo_mag_age_leg_arsl, filename = "plots/emo_mag_age_legend_arsl.png",  width = 6, height = 3.5, units = "in", bg = "transparent")
