@@ -9,7 +9,7 @@ source('scr/SummarySE2.R')
 # Arousal
 # ===============
 
-f <- read.csv('data/ave_faces_ratings_fm3_social.csv')
+f <- read.csv('data/study_2/fm2_ave_faces_ratings_social.csv')
 fa <- f[which(f$domain == 'arsl'),]
 
 # Remove age, domain and attention variables (missing data)
@@ -80,13 +80,13 @@ emo_mag_age_arsl = ggplot(fa2, aes(emotion, rating, fill = level)) + geom_bar(st
   ylim(0,7) + theme_minimal() + theme(legend.position = 'none', axis.title.x = element_text(face="bold", size=20), axis.text.x  = element_text(size=15)) + facet_wrap(~ agegrp) + xlab("Emotion") + scale_fill_brewer(name = "Level of Expression") + ylab(NULL) + coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1))
 
 # Save plot
-#ggsave(emo_mag_age_leg_arsl, filename = "plots/emo_mag_age_legend_arsl_fm3_social.png",  width = 11, height = 7, units = "in", bg = "transparent")
+#ggsave(emo_mag_age_leg_arsl, filename = "plots/fm2_emo_mag_age_legend_arsl_social.png",  width = 11, height = 7, units = "in", bg = "transparent")
 
 # ===============
 # Valence
 # ===============
 
-f <- read.csv('data/ave_faces_ratings_fm3_social.csv')
+f <- read.csv('data/study_2/fm2_ave_faces_ratings_social.csv')
 fv <- f[which(f$domain == 'vln'),]
 
 # Remove age, domain and attention variables (missing data)
@@ -157,7 +157,7 @@ emo_mag_age_val = ggplot(fv2, aes(emotion, rating, fill = level)) + geom_bar(sta
   coord_cartesian(ylim=c(1, 7)) + scale_y_continuous(breaks=seq(1, 7, 1)) + theme_minimal() + theme(legend.position = 'none', axis.title.x = element_text(face="bold", size=20), axis.text.x  = element_text(size=15)) + facet_wrap(~ agegrp) + xlab("Emotion") + scale_fill_brewer(name  ="Level of Expression") + ylab (NULL)
 
 # Save plot
-#ggsave(emo_mag_age_leg_val, filename = "plots/emo_mag_age_legend_val_fm3_social.png",  width = 6, height = 7, units = "in", bg = "transparent")
+#ggsave(emo_mag_age_leg_val, filename = "plots/fm2_emo_mag_age_legend_val_social.png",  width = 6, height = 7, units = "in", bg = "transparent")
 
 # ==============================
 # Arousal and Valence Figure
@@ -175,4 +175,4 @@ all <- ggplot(all_ratings, aes(emotion, rating, fill = level)) + geom_bar(stat =
 all
 
 # Save plot
-ggsave(all, filename = "plots/fm3_social_emo_mag_age_legend.png", width = 6, height = 7, units = "in", bg = "transparent")
+ggsave(all, filename = "plots/fm2_social_emo_mag_age_legend.png", width = 6, height = 7, units = "in", bg = "transparent")
