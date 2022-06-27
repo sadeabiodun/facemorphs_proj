@@ -20,7 +20,7 @@ d2$level <- as.factor(t(as.data.frame(strsplit(as.character(d2$variable), '_')))
 d2$domain <- as.factor(t(as.data.frame(strsplit(as.character(d2$variable), '_')))[,4])
 
 # Create [clean] csv of combined data
-write.csv(d2,'data/all_faces_ratings_fm3.csv', row.names = FALSE)
+write.csv(d2,'data/study_2/fm2_all_faces_ratings.csv', row.names = FALSE)
 
 # ------------------------------- 
 # Age grouping
@@ -73,10 +73,10 @@ d3w2_s <- select(d3w2, -contains('lose'), -contains('win'))
 d3w2_m <- select(d3w2, c('subnum', 'agegrp', 'age'), contains('lose'), contains('win'))
 
 # Comment out line below unless researcher desires to create csv with domain printed on separate rows
-write.csv(d3w_s,'data/ave_faces_ratings_fm3_social.csv', row.names = FALSE)
-write.csv(d3w_m,'data/ave_faces_ratings_fm3_monetary.csv', row.names = FALSE)
-write.csv(d3w2_s, 'data/ave_faces_ratings_aro_val_fm3_social.csv', row.names = FALSE)
-write.csv(d3w2_m,'data/ave_faces_ratings_aro_val_fm3_monetary.csv', row.names = FALSE)
+write.csv(d3w_s,'data/study_2/fm2_ave_faces_ratings_social.csv', row.names = FALSE)
+write.csv(d3w_m,'data/study_2/fm2_ave_faces_ratings_monetary.csv', row.names = FALSE)
+write.csv(d3w2_s, 'data/study_2/fm2_ave_faces_ratings_aro_val_social.csv', row.names = FALSE)
+write.csv(d3w2_m,'data/study_2/fm2_ave_faces_ratings_aro_val_monetary.csv', row.names = FALSE)
 
 # Create and save new dataframes for follow up ANOVAs
 ya <- d3w2_m %>% filter(agegrp == "Younger")
