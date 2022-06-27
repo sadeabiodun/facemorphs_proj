@@ -6,7 +6,7 @@ library(plyr); library(dplyr); library(forcats); library(ggplot2); library(wesan
 source('scr/SummarySE2.R')
 
 # Load data
-d1 <- read.csv('data/all_faces_ratings_fm3.csv', header = TRUE)
+d1 <- read.csv('data/study_2/fm2_all_faces_ratings.csv', header = TRUE)
 
 # Rename columns
 d1 <- dplyr::rename(d1, c('rating_type' = 'domain', 'magnitude' = 'level'))
@@ -51,7 +51,7 @@ arsl_grid <- arsl_plot + facet_grid(emotion ~ domain, scales = 'free', space = '
 arsl_grid
 
 # Save plot
-ggsave('plots/fm3_soc_mon_arsl_comparison.png', width = 6, height = 7, units = "in", bg = "transparent")
+ggsave('plots/fm2_soc_mon_arsl_comparison.png', width = 6, height = 7, units = "in", bg = "transparent")
 
 # Valence graph
 vln_plot <- ggplot(vln, aes(x = agegrp, y = rating, fill = magnitude)) +
@@ -65,4 +65,4 @@ vln_grid <- vln_plot + facet_grid(emotion ~ domain, scales = 'free', space = 'fr
 vln_grid
 
 # Save plot
-ggsave('plots/fm3_soc_mon_vln_comparison.png', width = 6, height = 7, units = "in", bg = "transparent")
+ggsave('plots/fm2_soc_mon_vln_comparison.png', width = 6, height = 7, units = "in", bg = "transparent")
